@@ -99,7 +99,7 @@ def get_extensions():
         extra_compile_args["nvcc"] = []
         return None
 
-    sources = [os.path.join(extensions_dir, s) for s in sources]
+    sources = [os.path.relpath(s, this_dir) for s in sources]
     include_dirs = [extensions_dir]
 
     ext_modules = [
